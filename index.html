@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoplanet Exploration: Create Your Own Exoplanet</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; 
+        }
+        canvas {
+            display: block; 
+        }
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        #imageModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+        #modalContent {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 40%;
+            max-height: 60%;
+            overflow: auto; 
+        }
+        #planetImage {
+            width: 100%; 
+            height: auto;
+        }
+        #copyright {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            font-size: 12px;
+            color: #ffffff; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Planet customizer controls -->
+    <div id="controls">
+        <label for="sizeSlider">Size:</label>
+        <input type="range" id="sizeSlider" min="0.5" max="3" step="0.1" value="1">
+        <br>
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#0077ff">
+        <br>
+        <label for="textureSelector">Texture:</label>
+        <select id="textureSelector">
+            <option value="textures/moon.jpg">Moon</option>
+            <option value="textures/jupiter.jpg">Jupiter</option>
+            <option value="textures/mars.jpg">Mars</option>
+            <option value="textures/neptune.jpg">Neptune</option>
+            <option value="textures/uranus.jpg">Uranus</option>
+        </select>
+        <br>
+        <br>
+            <label for="cloudToggle">Show Clouds:</label>
+            <input type="checkbox" id="cloudToggle">
+        <br>
+        <button id="saveImageBtn">Save Exoplanet settings</button>
+    </div>
+    <canvas id="exoplanetCanvas"></canvas>
+
+    <!-- Download Img -->
+    <div id="imageModal" style="display:none;">
+        <div id="modalContent">
+            <img id="planetImage" src="" alt="Your Exoplanet" style="width: 100%; border: 5px solid black;">
+            <div>
+                <label for="planetNameInput">Name Your Planet:</label>
+                <input type="text" id="planetNameInput">
+            </div>
+            <button id="confirmDownloadBtn">Confirm Download Image</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script_screenshot.js"></script>
+
+    <div id="copyright">
+        © 2024 Rebecca Lai Yee Enn. All rights reserved.
+    </div>
+</body>
+</html>
+
